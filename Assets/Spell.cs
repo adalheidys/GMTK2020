@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class AbilityMenu : MonoBehaviour
+public class Spell :MonoBehaviour
 {
-
-    public Spell[] spells;
-    
-
+    string SpellName;
+    int Mana;
     // Start is called before the first frame update
-    void Start()
-    {
-       
+    public Spell()
+    {     
     }
 
     // Update is called once per frame
@@ -20,8 +16,8 @@ public class AbilityMenu : MonoBehaviour
     {
         
     }
-    public void activateAbility(int abilityNum)
+    virtual public void Cast()
     {
-        spells[abilityNum].Cast();
+        Debug.Log("SpellCast");
     }
 }

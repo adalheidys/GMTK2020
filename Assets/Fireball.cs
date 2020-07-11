@@ -1,18 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class AbilityMenu : MonoBehaviour
+public class Fireball : Spell
 {
-
-    public Spell[] spells;
-    
-
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -20,8 +15,9 @@ public class AbilityMenu : MonoBehaviour
     {
         
     }
-    public void activateAbility(int abilityNum)
+
+    override public void Cast()
     {
-        spells[abilityNum].Cast();
+        Debug.Log("FireBall");    
     }
 }
