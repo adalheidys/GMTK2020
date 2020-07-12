@@ -20,12 +20,13 @@ public class MapGenerator : MonoBehaviour
     public GameObject[] distractions;
     public GameObject[] locks;
 
+    public Transform doorPos;
     public Transform playerTransform;
     public int size;//the size of the map (its a square)
     public int deadEnds = 5;//how many dead ends to generate
     public int width = 2;
     public int wallFrequency;//how often to place a random wall thing
-    public int numHazards;
+    public int numHazards;    
     public float objectDistance;//the min distance of how far apart the objects are
     public String[] temptationTags = { "RogueTempt", "BardTempt", "WarriorTempt" };
     public String[] lockTags = { "RogueLock", "BardLock", "WarriorLock" };
@@ -38,18 +39,19 @@ public class MapGenerator : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {       
-        wallTilemap.BoxFill(new Vector3Int(0, 0, 0), topTile, 0, 0, size, size);//fill the world
+    {               
+        wallTilemap.BoxFill(new Vector3Int(0, 0, 0), topTile, -10, -10, size+10, size+10);//fill the world
         
         //finding start and end points
         float dist = 0;//distance between start and end point
         while (dist < size / 1.5f) {//find endpoints that are kinda far apart
-            startPoint = new Vector2Int(UnityEngine.Random.Range(0, 10), UnityEngine.Random.Range(0, 10));
+            startPoint = new Vector2Int(0, 0);
             endPoint = new Vector2Int(UnityEngine.Random.Range(0, size - 1), UnityEngine.Random.Range(0, size - 1));
             dist = Vector2Int.Distance(startPoint, endPoint);
-            objectPositions.Add(startPoint);
-            objectPositions.Add(endPoint);
         }
+        objectPositions.Add(startPoint);
+        objectPositions.Add(endPoint);
+        doorPos.position = tilemap.GetCellCenterWorld(new Vector3Int(endPoint.x, endPoint.y, 0)) + new Vector3(0,0.1f,0);
         generatePath(startPoint, endPoint);//generate the path from the begining to end
         playerTransform.position = tilemap.CellToWorld(new Vector3Int(startPoint.x, startPoint.y, 0));
         playerTransform.position = new Vector3(playerTransform.position.x, 1, playerTransform.position.z);
@@ -116,10 +118,11 @@ public class MapGenerator : MonoBehaviour
                 if (filledPoints.Contains(tryPosition + new Vector2Int(-1, 1)))
                     Instantiate(barrier, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x - 1, tryPosition.y + 1, 0)), Quaternion.identity, lev.transform);
                 placed = true;
+                lev.transform.position += new Vector3(0, 0.1f, 0);
                 //}
             }
         }
-
+        
         //add hazards/distractions
         for (int s = 0; s < numHazards;s++)
         {
@@ -162,6 +165,7 @@ public class MapGenerator : MonoBehaviour
                     if (filledPoints.Contains(tryPosition + new Vector2Int(-1, 1)))
                         Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y + 1, 0)), Quaternion.identity, dis.transform);
                     placed = true;
+                    dis.transform.position += new Vector3(0, 0.1f, 0);
                 }
             }
         }
@@ -180,7 +184,7 @@ public class MapGenerator : MonoBehaviour
                 return true;
             }
         }
-        return false;
+        return false;       
     }
 
     void generatePath(Vector2Int start, Vector2Int end)
@@ -249,5 +253,10 @@ public class MapGenerator : MonoBehaviour
         {
             return currPoint + new Vector2Int(0, UnityEngine.Random.Range(-1, 2));
         }
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 }

@@ -8,10 +8,12 @@ public class Switch : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Rogue")||other.CompareTag("Bard")||other.CompareTag("Warrior"))
-        spriteRenderer.sprite = activatedSprite;
-        //send message to door
-        //Door.HitSwitch();
-        Debug.Log("hit inner Switch");
+        if (other.CompareTag("Rogue") || other.CompareTag("Bard") || other.CompareTag("Warrior"))
+        {
+            spriteRenderer.sprite = activatedSprite;
+            //send message to door
+            Door.currentDoor.looseLock();
+            Debug.Log("hit inner Switch");
+        }
     }
 }
