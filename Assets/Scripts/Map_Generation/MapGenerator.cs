@@ -60,7 +60,7 @@ public class MapGenerator : MonoBehaviour
         {
             Vector2Int end = new Vector2Int(UnityEngine.Random.Range(0, size - 1), UnityEngine.Random.Range(0, size - 1));
             deadEndList.Add(end);
-            Debug.Log(end);
+            //Debug.Log(end);
             generatePath(filledPoints[UnityEngine.Random.Range(0,filledPoints.Count-1)], end);
         }
 

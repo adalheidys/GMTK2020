@@ -48,6 +48,21 @@ public class CallerController : MonoBehaviour
         }
         else
         {
+            if (Rogue)
+            {
+                Rogue.target = null;
+                Rogue.directed = false;
+            }
+            if (Bard)
+            {
+                Bard.target = null;
+                Bard.directed = false;
+            }
+            if (Warrior)
+            {
+                Warrior.target = null;
+                Warrior.directed = false;
+            }
             Destroy(this.gameObject);
         }
     }
