@@ -4,17 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rogue
   - RogueTempt
   - LockObject
+  - Rogue
   - Delete
+  - RogueLock
   - Bard
   - Warrior
-  - BardTempt
-  - WarriorTempt
-  - RogueLock
-  - BardLock
-  - WarriorLock
   layers:
   - Default
   - TransparentFX
