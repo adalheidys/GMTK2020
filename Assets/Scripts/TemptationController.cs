@@ -15,6 +15,7 @@ public class TemptationController : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag(targetType).GetComponent<AIController>();
+        Debug.Log(target.name);
     }
 
     private void FixedUpdate()

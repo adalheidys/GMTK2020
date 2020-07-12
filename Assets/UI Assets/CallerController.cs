@@ -48,7 +48,8 @@ public class CallerController : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            this.enabled = false;
+            //Destroy(this.gameObject);
         }
     }
 }

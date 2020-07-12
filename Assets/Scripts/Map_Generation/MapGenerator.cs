@@ -141,26 +141,26 @@ public class MapGenerator : MonoBehaviour
                     objectPositions.Add(tryPosition);
                     //place the distraciton
                     GameObject distraction = distractions[UnityEngine.Random.Range(0, distractions.Length - 1)];
-                    Instantiate(distraction, worldPos, Quaternion.identity);
+                    GameObject dis = Instantiate(distraction, worldPos, Quaternion.identity);
                     
                     //get the hazard
                     GameObject hazard = hazards[UnityEngine.Random.Range(0, hazards.Length - 1)];
                     if (filledPoints.Contains(tryPosition + new Vector2Int(0, 1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y+1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y+1, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(1, 1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y + 1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y + 1, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(1, 0)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(1, -1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y - 1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x+1, tryPosition.y - 1, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(0, -1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y -1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y -1, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(-1, -1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y - 1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y - 1, 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(-1, 0)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y , 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y , 0)), Quaternion.identity, dis.transform);
                     if (filledPoints.Contains(tryPosition + new Vector2Int(-1, 1)))
-                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y + 1, 0)), Quaternion.identity, distraction.transform);
+                        Instantiate(hazard, tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x-1, tryPosition.y + 1, 0)), Quaternion.identity, dis.transform);
                     placed = true;
                 }
             }
