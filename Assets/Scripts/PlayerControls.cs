@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         float horz = 0;
         float vert = 0;
@@ -43,7 +43,7 @@ public class PlayerControls : MonoBehaviour
             animator.SetBool("inMotion", true);
         }
 
-        body.velocity = new Vector3(horz, 0,vert) * speed * Time.fixedDeltaTime;
+        body.velocity = new Vector3(horz, 0, vert) * speed * Time.fixedDeltaTime;
         
     }
 

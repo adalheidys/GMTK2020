@@ -134,6 +134,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2891336573450522583, guid: 6fd7d4b9e96005d4392ecdd37182b09d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891336573450522583, guid: 6fd7d4b9e96005d4392ecdd37182b09d,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3202946312706828797, guid: 6fd7d4b9e96005d4392ecdd37182b09d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -364,7 +374,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4495473947948576379, guid: 6fd7d4b9e96005d4392ecdd37182b09d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8507222614161187517, guid: 6fd7d4b9e96005d4392ecdd37182b09d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fd7d4b9e96005d4392ecdd37182b09d, type: 3}
 --- !u!1 &303455417
 GameObject:
@@ -407,6 +423,7 @@ MonoBehaviour:
   hazards: []
   distractions: []
   locks: []
+  doorPos: {fileID: 0}
   playerTransform: {fileID: 143403430}
   size: 200
   deadEnds: 5
