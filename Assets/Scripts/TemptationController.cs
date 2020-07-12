@@ -19,7 +19,7 @@ public class TemptationController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, target.transform.position - transform.position, Color.green);
+       // Debug.DrawRay(transform.position, target.transform.position - transform.position, Color.green);
         if (Physics.Raycast(transform.position, target.transform.position - transform.position, out hit, maxDistance))
         {
             if (hit.collider.CompareTag(targetType)) //hit something else before the camera

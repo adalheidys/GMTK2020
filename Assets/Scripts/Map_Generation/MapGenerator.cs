@@ -93,7 +93,7 @@ public class MapGenerator : MonoBehaviour
                 Vector2Int tryPosition = deadEndList[z];//pick a random tile
                 objectPositions.Add(tryPosition);
                 Vector3 worldPos = tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y, 0));
-                Debug.Log(tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y, 0)));
+                //Debug.Log(tilemap.GetCellCenterWorld(new Vector3Int(tryPosition.x, tryPosition.y, 0)));
                 //place the lever
                 GameObject lev = Instantiate(lever, worldPos, Quaternion.identity);
                 lev.tag = lockTags[z];
