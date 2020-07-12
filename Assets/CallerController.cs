@@ -17,20 +17,29 @@ public class CallerController : MonoBehaviour
         if (CallRogue)
         {
             Rogue = GameObject.FindWithTag("Rogue").GetComponent<AIController>();
-            Rogue.target = this.transform;
-            Rogue.directed = true;
+            if (Rogue)
+            {
+                Rogue.target = this.transform;
+                Rogue.directed = true;
+            }
         }
         if (CallBard)
         {
             Bard = GameObject.FindWithTag("Bard").GetComponent<AIController>();
-            Bard.target = this.transform;
-            Bard.directed = true;
+            if (Bard)
+            {
+                Bard.target = this.transform;
+                Bard.directed = true;
+            }
         }
         if (CallWarrior)
         {
             Warrior = GameObject.FindWithTag("Warrior").GetComponent<AIController>();
-            Warrior.target = this.transform;
-            Warrior.directed = true;
+            if (Warrior)
+            {
+                Warrior.target = this.transform;
+                Warrior.directed = true;
+            }
         }
     }
 
