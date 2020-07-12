@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     Rigidbody body;
-        
+    public float speed;
     void Start()
     {
         body = transform.GetComponentInChildren<Rigidbody>();
@@ -17,7 +17,6 @@ public class PlayerControls : MonoBehaviour
     {
         float horz = 0;
         float vert = 0;
-        float speed = 100;
         
         if ( (Input.GetKey("a") || Input.GetKey("left"))  )
         {

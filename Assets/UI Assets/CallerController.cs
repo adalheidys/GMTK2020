@@ -16,19 +16,19 @@ public class CallerController : MonoBehaviour
     {
         if (CallRogue)
         {
-            Rogue = GameObject.FindWithTag("Rogue").GetComponent<AIController>();
+            Rogue = PartyReferences.currentParty.Rogue.GetComponent<AIController>();
             Rogue.target = this.transform;
             Rogue.directed = true;
         }
         if (CallBard)
         {
-            Bard = GameObject.FindWithTag("Bard").GetComponent<AIController>();
+            Bard = PartyReferences.currentParty.Bard.GetComponent<AIController>();
             Bard.target = this.transform;
             Bard.directed = true;
         }
         if (CallWarrior)
         {
-            Warrior = GameObject.FindWithTag("Warrior").GetComponent<AIController>();
+            Warrior = PartyReferences.currentParty.Warrior.GetComponent<AIController>();
             Warrior.target = this.transform;
             Warrior.directed = true;
         }
@@ -48,8 +48,8 @@ public class CallerController : MonoBehaviour
         }
         else
         {
-            this.enabled = false;
-            //Destroy(this.gameObject);
+           this.enabled = false;
+           Destroy(this.gameObject);
         }
     }
 }

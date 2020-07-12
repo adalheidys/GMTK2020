@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite twoLocks;
     public Sprite oneLock;
-    public Sprite noLock;
+    public Sprite noLock;   
     public static Door currentDoor;
     private void Awake()
     {
@@ -20,15 +20,32 @@ public class Door : MonoBehaviour
         numLocks--;
         if(numLocks == 2)
         {
-
+            spriteRenderer.sprite = twoLocks;
         }
         else if(numLocks == 1)
         {
-
+            spriteRenderer.sprite = oneLock;
         }
         else if(numLocks <= 0)
         {
-
+            spriteRenderer.sprite = noLock;
         }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (numLocks <= 0)
+            {
+                Debug.Log("nextScene");
+                //nextScene();
+            }
+        }
+    }
+
+    public void setPos(Vector3 pos)
+    {
+        transform.position = pos;
     }
 }

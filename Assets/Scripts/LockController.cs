@@ -10,14 +10,14 @@ public class LockController : MonoBehaviour
     {
         if (activatable)
         {
-            for(int i = 0; i < transform.childCount-1; i++)
+            for(int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).CompareTag("LockObject"))
                 {
                     Destroy(transform.GetChild(i).gameObject);
                 }
             }
-            activatable = false;
+            activatable = false;            
         }
 
     }

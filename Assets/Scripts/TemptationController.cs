@@ -14,7 +14,18 @@ public class TemptationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag(targetType).GetComponent<AIController>();
+        switch (targetType)
+        {
+            case "Rogue":
+                target = PartyReferences.currentParty.Rogue.GetComponent<AIController>();
+                break;
+            case "Bard":
+                target = PartyReferences.currentParty.Bard.GetComponent<AIController>();
+                break;
+            case "Warrior":
+                target = PartyReferences.currentParty.Warrior.GetComponent<AIController>();
+                break;
+        }
         Debug.Log(target.name);
     }
 

@@ -17,6 +17,7 @@ public class AIController : MonoBehaviour
     public bool tempted;
     public bool directed;
     public RaycastHit hit;
+    Vector3 targetPos;
     //public LockController lockcon;
 
     // Start is called before the first frame update
@@ -55,12 +56,16 @@ public class AIController : MonoBehaviour
         }
         else if (directed)
         {
-            //Debug.Log(Vector3.Distance(target.position, transform.position));
-            nav.SetDestination(target.position);
-            if (Vector3.Distance(target.position, transform.position) < goalSensitivity)
+            if(target != null)
+            {             //Debug.Log(Vector3.Distance(target.position, transform.position));
+                nav.SetDestination(target.position);
+                targetPos = target.position;                
+            }
+            if (Vector3.Distance(targetPos, transform.position) < goalSensitivity)
             {
                 directed = false;
             }
+
         }
         else
         {
